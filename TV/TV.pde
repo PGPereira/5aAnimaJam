@@ -7,13 +7,19 @@ void setup(){
 }
 
 void draw() {
-  PImage soldier = loadImage(String.format("../soldier/frame/soldier-%03d.tif", ceil(frameCount/4.0)));
-  soldier.resize(0, 650);
-  soldier = addScanline(soldier, frameCount % 13, 13);
+  //PImage soldier = loadImage(String.format("../soldier/frame/soldier-%03d.tif", ceil(frameCount/4.0)));
+  //soldier.resize(0, 480);
+  //soldier = addScanline(soldier, frameCount % 13, 13);
+  //image(soldier, 655, 156);
   
-  image(soldier, 655, 156);
+  PImage sunset = loadImage(String.format("../sunset/frames/sunset-%03d.tif", frameCount));
+  sunset.resize(0,480);
+  sunset = addScanline(sunset, frameCount % 13, 13);
+  image(sunset, 655, 156);
+  
   image(tv, 0, 0);
-  saveFrame("frames/tv-###.png");
+  saveFrame("sunset/tv-###.png");
+  //saveFrame("frames/tv-###.png");
 }
 
 PImage addScanline(PImage k, int cycleBegin, int scanCycle) {

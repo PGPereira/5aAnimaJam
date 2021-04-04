@@ -18,30 +18,24 @@ def draw():
     
     fill(255, 0, 0)
     print(x, y)
-    for i in range(1, 2000):
-        if(state == 0):
+    if(state == 0):
+        for i in range(1, 4000):
             k = random(0, 10)
             circle(random(x, w + x), random(y - h, y), k)
-        if(state == 1):
-            copy(
-                 bg, 
-                 int(x), int(max(y - h, 0)), w, h, 
-                 int(x), int(max(y - h, 0)), w, h
-            );
-            # loadPixels()
-            # bg.loadPixels()
-            # for i in range(int(x), int(min(width - 1, w + x))):
-            #     for j in range(int(max(y-h, 0)), int(min(y, height - 1))):
-            #         pixels[i + j * width] = bg.pixels[i + j * bg.width]
-            # updatePixels()
-            # bg.updatePixels()
+    elif(state == 1):
+        copy(
+            bg, 
+            int(x), int(max(y - h, 0)), w, h, 
+            int(x), int(max(y - h, 0)), w, h
+        );
     
         
     if(down):
-        y += h/3.0
+        y += h
     else:
+        y -= h*2/3.0
         x = (targetX - w) + w * ((height - y)/height)
-        y -= h * 2/3.0
+        
         
     if(y >= height + h):
         y = height + h
